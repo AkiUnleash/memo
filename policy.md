@@ -8,14 +8,33 @@
             "Effect": "Deny",
             "Principal": "*",
             "Action": "s3:*",
-            "Resource": "arn:aws:s3:::s3-test-ecs/*",
+            "Resource": "arn:aws:s3:::s3-xxx/*",
             "Condition": {
                 "StringNotEquals": {
-                    "aws:SourceVpce": "vpce-0a23398e8144e3ce8"
+                    "aws:SourceVpce": "vpce-zzzzz"
                 }
             }
         }
     ]
+}
+
+{
+	"Version": "2012-10-17",
+	"Id": "SourceIP",
+	"Statement": [
+		{
+			"Sid": "SourceIPAndVPCe",
+			"Effect": "Deny",
+			"Principal": "*",
+			"Action": "s3:*",
+			"Resource": "arn:aws:s3:::s3-xxxx/*",
+			"Condition": {
+				"StringNotEquals": {
+					"aws:sourceVpc": "vpc-zzzzzzzzzzzz"
+				}
+			}
+		}
+	]
 }
 
 
